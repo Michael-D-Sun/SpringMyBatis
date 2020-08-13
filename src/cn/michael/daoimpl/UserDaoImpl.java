@@ -15,7 +15,11 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> selectUser() {
-
+        User user = new User();
+        user.setName("Hehe");
+        user.setPwd("dddddd");
+        sqlSession.insert("cn.michael.entity.UserMapper.addUser", user);
+        sqlSession.delete("cn.michael.entity.UserMapper.deleteUser", 20);
         return sqlSession.selectList("cn.michael.entity.UserMapper.selectAll");
     }
 
